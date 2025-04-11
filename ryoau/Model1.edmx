@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="dbOkulModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tblAlanlar">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="alanAdi" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblKulupler">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="kulupAdi" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tblOgrenciler">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="adi" Type="nvarchar" MaxLength="50" />
+          <Property Name="no" Type="nvarchar" MaxLength="50" />
+          <Property Name="sinifi" Type="nvarchar" MaxLength="50" />
+          <Property Name="kulubu" Type="nvarchar" MaxLength="50" />
+          <Property Name="alani" Type="nvarchar" MaxLength="50" />
+          <Property Name="durumu" Type="bit" />
+        </EntityType>
+        <EntityType Name="tblSiniflar">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sinifAdi" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="dbOkulModelStoreContainer">
+          <EntitySet Name="tblAlanlar" EntityType="Self.tblAlanlar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblKulupler" EntityType="Self.tblKulupler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblOgrenciler" EntityType="Self.tblOgrenciler" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblSiniflar" EntityType="Self.tblSiniflar" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="dbOkulModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tblAlanlar">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="alanAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblKulupler">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="kulupAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tblOgrenciler">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="adi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="no" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="sinifi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="kulubu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="alani" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="durumu" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="tblSiniflar">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sinifAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="dbOkulEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tblAlanlar" EntityType="Self.tblAlanlar" />
+          <EntitySet Name="tblKulupler" EntityType="Self.tblKulupler" />
+          <EntitySet Name="tblOgrenciler" EntityType="Self.tblOgrenciler" />
+          <EntitySet Name="tblSiniflar" EntityType="Self.tblSiniflar" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="dbOkulModelStoreContainer" CdmEntityContainer="dbOkulEntities">
+          <EntitySetMapping Name="tblAlanlar">
+            <EntityTypeMapping TypeName="dbOkulModel.tblAlanlar">
+              <MappingFragment StoreEntitySet="tblAlanlar">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="alanAdi" ColumnName="alanAdi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblKulupler">
+            <EntityTypeMapping TypeName="dbOkulModel.tblKulupler">
+              <MappingFragment StoreEntitySet="tblKulupler">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="kulupAdi" ColumnName="kulupAdi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblOgrenciler">
+            <EntityTypeMapping TypeName="dbOkulModel.tblOgrenciler">
+              <MappingFragment StoreEntitySet="tblOgrenciler">
+                <ScalarProperty Name="durumu" ColumnName="durumu" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="adi" ColumnName="adi" />
+                <ScalarProperty Name="no" ColumnName="no" />
+                <ScalarProperty Name="sinifi" ColumnName="sinifi" />
+                <ScalarProperty Name="kulubu" ColumnName="kulubu" />
+                <ScalarProperty Name="alani" ColumnName="alani" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblSiniflar">
+            <EntityTypeMapping TypeName="dbOkulModel.tblSiniflar">
+              <MappingFragment StoreEntitySet="tblSiniflar">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="sinifAdi" ColumnName="sinifAdi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
